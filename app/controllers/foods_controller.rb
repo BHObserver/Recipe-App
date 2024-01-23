@@ -40,6 +40,13 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @food = Food.find(params[:id])
+    authorize! :destroy, @food
+    @food.destroy
+    flash[:notice] = 'The food was successfully deleted'
+    redirect_to foods_path, status: :see_other
+  end
 
   private
 
