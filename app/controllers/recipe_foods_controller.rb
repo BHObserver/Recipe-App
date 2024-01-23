@@ -1,5 +1,5 @@
 class RecipeFoodsController < ApplicationController
-
+  before_action :authenticate_user!
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
@@ -47,6 +47,15 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = @recipe.recipe_foods.find(params[:id])
+    authorize! :update, @recipe
+
+    @recipe_food.destroy
+    flash[:notice] = 'The ingredient was successfully removed from the recipe'
+    redirect_to recipe_path(@recipe), status: :see_other
+  end
 
   def generate_shopping_list
     @shopping_items = RecipeFood.missing_food(current_user.id)
