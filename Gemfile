@@ -76,3 +76,5 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'devise'
 
 gem 'dotenv-rails', '~> 2.8.1'
+
+gem 'cancancan'
