@@ -1,7 +1,15 @@
-<h1>List of all Users</h1>
 
-<div class="container">
+
+<ul class='cardlist'>
   <% @users.each do |user| %>
-    <%= render partial: 'user', locals: { user: user } %>
+    <li class='card'>
+      <div class='photo'>
+        <img src='<%= user.photo %>' alt='<%= user.name %>' class='user-photo' />
+      </div>
+      <div class='userinfo'>
+        <h2 class='username'><%= user.name %></h2>
+        <p class='recipe-amount'>Number of recipes: <%= user.recipes.count %></p>
+      </div>
+    </li>
   <% end %>
-</div>
+</ul>
