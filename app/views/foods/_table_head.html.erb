@@ -3,8 +3,8 @@
         <% columns.each do |column| %>
             <th><%= column %></th>
         <% end %>
-
+        <% if with_actions %>
             <th>Actions</th>
-
+        <% end %>
     </tr>
 </thead>
