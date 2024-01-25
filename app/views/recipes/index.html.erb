@@ -3,7 +3,7 @@
     <%= link_to "Add recipe", new_recipe_path, class: 'button-link' %>
     <% if @recipes.count > 0 %>
         <table>
-            <%= render 'table_head', { columns: ['Recipe', 'Measurement Unit', 'Unit Price']} %>
+            <%= render 'table_head', { columns: ['Recipe', 'Description', 'Public']} %>
         </table>
     <% else %>
         <p>No recipe in your store, click on the button to add some.</p>
