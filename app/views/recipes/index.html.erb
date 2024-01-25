@@ -1,3 +1,11 @@
-<h1>Recipes</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
-
+<div class="recipe-container">
+    <h2 class='header'>Your stored recipe</h2>
+    <%= link_to "Add recipe", new_recipe_path, class: 'button-link' %>
+    <% if @recipes.count > 0 %>
+        <table>
+            <%= render 'table_head', { columns: ['Recipe', 'Measurement Unit', 'Unit Price']} %>
+        </table>
+    <% else %>
+        <p>No recipe in your store, click on the button to add some.</p>
+    <% end %>
+</div>
