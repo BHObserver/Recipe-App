@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<%= stylesheet_link_tag "navbar" %>
+
+<section class="main-navigation">
+  <div class="brand-section">
+    <%= link_to "Epicurean Delights", root_path, class: "brand-logo" %>
+  </div>
+  <div class="links-section">
+    <ul class="nav-list">
+      <% if current_user %>
+        <li class="nav-item"> <%= link_to "Discover Recipes", recipes_path, class: "nav-link" %></li>
+        <li class="nav-item"> <%= link_to "Community Recipes", public_recipes_path, class: "nav-link" %></li>
+        <li class="nav-item"> <%= link_to "Explore Foods", foods_path, class: "nav-link" %></li>
+        <li class="nav-item"> <%= link_to "Account Settings", edit_user_registration_path, class: "nav-link" %></li>
+        <li class="nav-item"> <%= link_to "Sign Out", logout_path, class: "nav-link" %></li>
+      <% else %>
+        <li class="nav-item"> <%= link_to "Join Us", new_user_registration_path, class: "nav-link"  %></li>
+        <li class="nav-item"> <%= link_to "Sign In", login_path, class: "nav-link"  %></li>
+      <% end %>
+    </ul>
+  </div>
+</section>
