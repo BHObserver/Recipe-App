@@ -1,11 +1,14 @@
-<div class="recipe-container">
-    <h2 class='header'>Your stored recipe</h2>
-    <%= link_to "Add recipe", new_recipe_path, class: 'button-link' %>
-    <% if @recipes.count > 0 %>
-        <table>
-            <%= render 'table_head', { columns: ['Recipe', 'Description', 'Public']} %>
-        </table>
+<%= stylesheet_link_tag "recipes" %>
+<div>
+  <h2 class='header'>My Recipes</h2>
+  <%= link_to "Add Recipe", new_recipe_path, class: 'button-link' if can? :create, Recipe %> 
+  <% if @recipes.size > 0 %>
+    <ul class='recipe-list'>
+      <% @recipes.each do |recipe| %>
+        <%= render recipe %>
+      <% end %>
+    </ul>
     <% else %>
-        <p>No recipe in your store, click on the button to add some.</p>
+      <p>No recipe added, click on the button to add some.</p>
     <% end %>
 </div>

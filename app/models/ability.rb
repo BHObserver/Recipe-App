@@ -6,7 +6,7 @@ class Ability
 
     if user.is? :admin
       can :manage, Food
-      can :manage, Recipe, user_id: user.id
+      can :manage, Recipe
       can :manage, User
     else
       can :read, Food

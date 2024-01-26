@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_23_050248) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_21_104425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.string "measurement_unit"
-    t.decimal "price"
-    t.integer "quantity"
+    t.float "price"
+    t.float "quantity"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,9 +26,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_050248) do
   end
 
   create_table "recipe_foods", force: :cascade do |t|
-    t.integer "quantity"
     t.bigint "food_id", null: false
     t.bigint "recipe_id", null: false
+    t.float "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_recipe_foods_on_food_id"
@@ -37,10 +37,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_050248) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
+    t.string "photo"
     t.integer "preparation_time"
     t.integer "cooking_time"
     t.text "description"
-    t.boolean "public"
+    t.boolean "public", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

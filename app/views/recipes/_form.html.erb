@@ -40,18 +40,6 @@
   </div>
 
   <div>
-    <%= form.label :public %>
-    <%= form.check_box :public, class: 'form-check-input' %><br>
-    <% recipe.errors.full_messages_for(:public).each do |message| %>
-      <p class='error-messages'><%= message %></p>
-    <% end %>
-  </div>
-
-  <div class="form-group">
-    <%= form.collection_select :user_id, User.all, :id, :name, {prompt: 'Select User'}, {class: 'form-control'} %>
-  </div>
-
-  <div>
     <%= form.submit "Save", class: 'button-link' %>
   </div>
 <% end %>
