@@ -10,7 +10,7 @@ body {
   align-items: center;
   padding: 15px 20px;
   background-color: #343a40;
-  color: #ffffff;
+  color: #fff;
 }
 
 .brand-section {
@@ -18,7 +18,7 @@ body {
 }
 
 .brand-logo {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 .nav-link {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
