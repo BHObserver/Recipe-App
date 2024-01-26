@@ -1,24 +1,24 @@
+
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: recipe_app_development
+  database: recipe_development
   pool: 5
   username: postgres
-  password: kingno3l
+  password: BurSqlHan#007
   host: localhost
-  port: 5433
+  port: 5432
 
 development:
   <<: *default
-  database: recipe_app_development
+  database: recipe_development
 
 test:
   <<: *default
-  database: recipe_app_test
-
+  database: recipe_test
 
 production:
   <<: *default
-  database: recipe_app_production
+  database: recipe_production
   username: postgres
-  password: kingno3l
+  password: BurSqlHan#007
