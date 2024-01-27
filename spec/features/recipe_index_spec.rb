@@ -17,8 +17,6 @@ RSpec.feature 'Recipe Index', type: :feature do
     expect(page).to have_css('h2.header', text: 'My Recipes')
     expect(page).to have_link('Add Recipe', href: new_recipe_path)
 
-
-
     # Test content within each recipe card
     expect(page).to have_css('.recipe-name', text: 'Chicken Stir-Fry')
 
