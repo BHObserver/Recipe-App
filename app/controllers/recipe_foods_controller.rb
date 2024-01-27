@@ -58,10 +58,8 @@ class RecipeFoodsController < ApplicationController
   end
 
   def generate_shopping_list
-
     user_recipes = Recipe.includes(recipe_foods: :food).where(user_id: current_user.id)
     user_foods = user_recipes.map { |recipe| recipe.recipe_foods.map(&:food) }.flatten
-
 
     consolidated_food_list = user_foods.group_by(&:id).transform_values { |foods| foods.sum(&:quantity) }
 
