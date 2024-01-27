@@ -7,7 +7,6 @@ RSpec.feature 'Recipe Index', type: :feature do
 
   before { sign_in user }
 
-
   scenario 'User views the recipe index with no recipes' do
     visit recipes_path
 
