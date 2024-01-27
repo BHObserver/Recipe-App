@@ -7,7 +7,7 @@ default: &default
   username: postgres
   password: kingno3l
   host: localhost
-  port: 5432
+  port: 5433
 
 development:
   <<: *default
