@@ -1,0 +1,112 @@
+/* Add these styles to your food.css file */
+
+.food-row {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.food-row td {
+  padding: 8px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.info-btn,
+.danger-btn {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.info-btn {
+  background-color: #5bc0de; /* Info button color */
+}
+
+.danger-btn {
+  background-color: #d9534f; /* Danger button color */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error-messages {
+  color: #d9534f; /* Error message color */
+}
+
+.submit-button {
+  padding: 10px 15px;
+  background-color: #5bc0de; /* Submit button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+thead {
+  background-color: #f8f9fa; /* Header background color */
+}
+
+th {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 2px solid #ddd; /* Border color between header and body */
+}
+
+.actions-header {
+  text-align: center;
+}
+
+/* Add these styles to your food.css file */
+
+.food-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.add-food-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #5bc0de; /* Add food button color */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.food-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.food-table th,
+.food-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Border color between rows */
+}

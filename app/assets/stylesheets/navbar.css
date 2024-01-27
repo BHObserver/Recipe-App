@@ -1,0 +1,52 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+.main-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #343a40;
+  color: #fff;
+}
+
+.brand-section {
+  font-size: 1.5rem;
+}
+
+.brand-logo {
+  color: #fff;
+  text-decoration: none;
+}
+
+.links-section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 15px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.nav-list {
+  display: flex;
+}
+
+.nav-list li {
+  margin-right: 15px;
+}

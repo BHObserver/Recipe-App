@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag "devise" %>
+
+<div class="signup-container">
+  <h2 class='header'>Sign Up</h2>
+
+  <div class='form-container'>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-field">
+        <%= f.label :name, class: 'form-label' %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-input' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :photo, class: 'form-label' %><br />
+        <%= f.file_field :photo, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :email, class: 'form-label' %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-input' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :password, class: 'form-label' %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-input' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :password_confirmation, class: 'form-label' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-input' %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Sign Up", class: 'btn' %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render "devise/shared/links" %>
+</div>

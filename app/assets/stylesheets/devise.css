@@ -1,0 +1,106 @@
+.signup-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  margin-top: 20px;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  color: #333;
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-message {
+  color: #007bff;
+  margin-top: 10px;
+}
+
+.btn,
+.btn-2 {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.btn:hover,
+.btn-2:hover {
+  background-color: #0056b3;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.remember-label {
+  margin-left: 5px;
+}
