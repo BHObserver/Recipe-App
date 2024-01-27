@@ -4,7 +4,7 @@ RSpec.describe Recipe, type: :model do
   let(:user) { User.create(name: 'John Doe', email: 'test@example.com', password: 'password123') }
 
   subject do
-    Recipe.new(user: user, name: 'Pizza', preparation_time: 30, cooking_time: 15, description: 'Very easy to prepare',
+    Recipe.new(user:, name: 'Pizza', preparation_time: 30, cooking_time: 15, description: 'Very easy to prepare',
                public: true)
   end
 

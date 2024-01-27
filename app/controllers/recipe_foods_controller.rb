@@ -78,9 +78,9 @@ class RecipeFoodsController < ApplicationController
 
     # Step 5: Display Results
     @shopping_items = {
-      missing_food_items: missing_food_items,
-      total_count: total_count,
-      total_price: total_price
+      missing_food_items:,
+      total_count:,
+      total_price:
     }
   end
 
