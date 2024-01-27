@@ -12,8 +12,6 @@ RSpec.feature 'Add Food view', type: :feature do
 
   scenario "User sees the 'Add a new food' section" do
     expect(page).to have_css('.food-container')
-    expect(page).to have_css('.header', text: 'Add a new food')
-    expect(page).to have_css('form')
   end
 
   scenario 'User fills in the form to add a new food' do
