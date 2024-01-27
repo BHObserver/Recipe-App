@@ -1,24 +1,12 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* Base Styles */
 body {
   font-family: "Roboto", sans-serif;
 }
 
+/* Button Styles */
 .button-link {
   border: 2px solid rgb(177, 131, 47);
   background-color: rgb(0, 0, 38);
@@ -28,6 +16,7 @@ body {
   text-decoration: none;
 }
 
+/* Table Styles */
 table {
   width: 100%;
   border: 1px solid black;
@@ -43,13 +32,12 @@ tbody tr:nth-child(odd) {
   background-color: rgb(230, 237, 237);
 }
 
-th,
-td {
+th, td {
   padding: 10px;
-  width: auto;
   border: 1px solid black;
 }
 
+/* Action Buttons Styles */
 tbody tr .action-buttons {
   display: flex;
   justify-content: space-around;
@@ -63,6 +51,7 @@ tbody tr .action-buttons a {
   border-radius: 50px;
 }
 
+/* Button Background Colors */
 .danger-bg {
   background-color: rgb(143, 15, 3);
 }
@@ -71,10 +60,12 @@ tbody tr .action-buttons a {
   background-color: rgb(3, 13, 105);
 }
 
+/* Error Message Styles */
 .error-messages {
   color: rgb(143, 15, 3);
 }
 
+/* Flash Messages Styles */
 .flash {
   padding: 10px;
   margin-bottom: 15px;

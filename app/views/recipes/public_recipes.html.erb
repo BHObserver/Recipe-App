@@ -1,9 +1,11 @@
 <%= stylesheet_link_tag "recipes" %>
 
-<h1 class='head'>Public Recipes</h1>
+<div class="public-recipes-container">
+  <h1 class='page-header'>Public Recipes</h1>
 
-<ul class='public-ul-list'>
+  <ul class='recipe-list'>
     <% @public_recipes.each do |recipe| %>
-        <%= render recipe %>
+      <%= render recipe %>
     <% end %>
-</ul>
+  </ul>
+</div>
