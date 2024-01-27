@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'John Doe', photo: 'https://jhon-doe-picture', email: 'john@doe.com', password: 'johndoe123') }
+  subject { User.new(name: 'John Doe', photo: 'https://john-doe-picture', email: 'john@doe.com', password: 'johndoe123') }
 
   before { subject.save }
 
@@ -17,6 +17,14 @@ RSpec.describe User, type: :model do
 
     it 'should have an email' do
       expect(subject.email).to eq('john@doe.com')
+    end
+
+    it 'should have a photo' do
+      expect(subject.photo).to eq('https://john-doe-picture')
+    end
+
+    it 'should have a password' do
+      expect(subject).to be_valid
     end
   end
 end

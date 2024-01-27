@@ -1,16 +1,47 @@
-<div class="food-container">
-    <h2 class='header'>Your stored food</h2>
-    <%= link_to "Add Food", new_food_path, class: 'button-link' if can? :create, Food %>
-    <% if @foods.count > 0 %>
-        <table>
-            <%= render 'table_head', { columns: ['Food', 'Measurement Unit', 'Unit Price'], with_actions: (can? :update, Food) } %>
-            <tbody>
-                <% @foods.each do |food| %>
-                    <%= render food, with_actions: (can? :update, Food) %>
-                <% end %>
-            </tbody>
-        </table>
-    <% else %>
-        <p>No food in your store, click on the button to add some.</p>
-    <% end %>
-</div>
+# spec/views/foods/index.html.erb_spec.rb
+
+require 'rails_helper'
+
+RSpec.describe 'foods/index.html.erb', type: :view do
+  let(:user) { create(:user) }
+  let(:food) { create(:food, user: user) }
+
+  before do
+    assign(:foods, [food])
+    sign_in user
+  end
+
+  context 'when user has permission to create Food' do
+    before { allow(view).to receive(:can?).with(:create, Food).and_return(true) }
+
+    it 'renders the "Add Food" link' do
+      render
+      expect(rendered).to have_link('Add Food', href: new_food_path)
+    end
+  end
+
+  context 'when user does not have permission to create Food' do
+    before { allow(view).to receive(:can?).with(:create, Food).and_return(false) }
+
+    it 'does not render the "Add Food" link' do
+      render
+      expect(rendered).not_to have_link('Add Food', href: new_food_path)
+    end
+  end
+
+  it 'renders food details with actions when user has permission to update Food' do
+    allow(view).to receive(:can?).with(:update, Food).and_return(true)
+    render
+
+    expect(rendered).to have_selector('.food-container table tbody tr td a', text: 'Modify', count: 1)
+    expect(rendered).to have_selector('.food-container table tbody tr td a', text: 'Delete', count: 1)
+  end
+
+  it 'does not render actions when user does not have permission to update Food' do
+    allow(view).to receive(:can?).with(:update, Food).and_return(false)
+    render
+
+    expect(rendered).not_to have_selector('.food-container table tbody tr td a', text: 'Modify')
+    expect(rendered).not_to have_selector('.food-container table tbody tr td a', text: 'Delete')
+  end
+end
