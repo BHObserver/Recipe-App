@@ -5,7 +5,7 @@ default: &default
   database: recipe_development
   pool: 5
   username: postgres
-  password: BurSqlHan#007
+  password: kingno3l
   host: localhost
   port: 5432
 
@@ -21,4 +21,4 @@ production:
   <<: *default
   database: recipe_production
   username: postgres
-  password: BurSqlHan#007
+  password: kingno3l
