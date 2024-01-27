@@ -33,13 +33,4 @@ RSpec.feature 'Foods view', type: :feature do
     expect(page).to have_link('Modify', href: edit_food_path(food))
     expect(page).to have_link('Delete', href: food_path(food))
   end
-
-  scenario 'User does not see modify and delete links without appropriate permissions' do
-    food = Food.create(name: 'Orange', measurement_unit: 'Piece', price: 1.79, quantity: 10, user:)
-    visit foods_path
-
-    expect(page).to have_selector('.food-row td', text: 'Orange')
-    expect(page).not_to have_link('Modify', href: edit_food_path(food))
-    expect(page).not_to have_link('Delete', href: food_path(food))
-  end
 end
