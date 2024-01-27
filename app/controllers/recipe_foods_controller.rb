@@ -59,21 +59,14 @@ class RecipeFoodsController < ApplicationController
 
   def generate_shopping_list
     user_recipes = Recipe.includes(recipe_foods: :food).where(user_id: current_user.id)
-    user_foods = user_recipes.map { |recipe| recipe.recipe_foods.map(&:food) }.flatten
-
-    consolidated_food_list = user_foods.group_by(&:id).transform_values { |foods| foods.sum(&:quantity) }
-
+    user_foods = extract_user_foods(user_recipes)
+    consolidated_food_list = consolidate_food_list(user_foods)
 
     general_foods = Food.where(user_id: current_user.id).pluck(:id, :quantity)
-    missing_food_items = consolidated_food_list.reject do |food_id, quantity|
-      general_foods_hash = general_foods.to_h
-      general_foods_hash[food_id] && general_foods_hash[food_id] >= quantity
-    end
+    missing_food_items = find_missing_food_items(consolidated_food_list, general_foods)
 
-
-    total_count = missing_food_items.values.sum
-    total_price = missing_food_items.sum { |food_id, quantity| Food.find(food_id).price * quantity }
-
+    total_count = calculate_total_count(missing_food_items)
+    total_price = calculate_total_price(missing_food_items)
 
     @shopping_items = {
       missing_food_items:,
@@ -83,6 +76,29 @@ class RecipeFoodsController < ApplicationController
   end
 
   private
+
+  def extract_user_foods(user_recipes)
+    user_recipes.map { |recipe| recipe.recipe_foods.map(&:food) }.flatten
+  end
+
+  def consolidate_food_list(user_foods)
+    user_foods.group_by(&:id).transform_values { |foods| foods.sum(&:quantity) }
+  end
+
+  def find_missing_food_items(consolidated_food_list, general_foods)
+    consolidated_food_list.reject do |food_id, quantity|
+      general_foods_hash = general_foods.to_h
+      general_foods_hash[food_id] && general_foods_hash[food_id] >= quantity
+    end
+  end
+
+  def calculate_total_count(missing_food_items)
+    missing_food_items.values.sum
+  end
+
+  def calculate_total_price(missing_food_items)
+    missing_food_items.sum { |food_id, quantity| Food.find(food_id).price * quantity }
+  end
 
   def food_already_added?(food, recipe)
     return true if food.nil?
