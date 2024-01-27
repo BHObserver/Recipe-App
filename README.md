@@ -1,7 +1,6 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Decode Morse Code ](#-decode-morse-code-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -27,7 +26,7 @@ Embark on a flavorful journey with **TasteTrail**! This recipe app simplifies yo
 ### Tech Stack <a name="tech-stack"></a>
 - **Ruby**
 - **PostgreSql**
-
+- **Rails**
 
 
 ### Key Features <a name="key-features"></a>
