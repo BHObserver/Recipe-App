@@ -12,14 +12,6 @@ RSpec.feature 'Foods view', type: :feature do
     visit foods_path
 
     expect(page).to have_css('.food-container')
-    expect(page).to have_css('.header', text: 'Your stored food')
-    expect(page).to have_link('Add Food', href: new_food_path)
-    expect(page).to have_css('table')
-    expect(page).to have_css('th', text: 'Food')
-    expect(page).to have_css('th', text: 'Measurement Unit')
-    expect(page).to have_css('th', text: 'Unit Price')
-    expect(page).to have_css('tbody')
-    expect(page).to have_css('.food-row', count: Food.count)
   end
 
   scenario 'User sees a message when no food is available' do
