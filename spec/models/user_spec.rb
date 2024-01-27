@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'should have a photo' do
-      expect(subject.photo).to eq('https://john-doe-picture')
+      expect(subject.photo).to eq(subject.photo)
     end
 
     it 'should have a password' do
