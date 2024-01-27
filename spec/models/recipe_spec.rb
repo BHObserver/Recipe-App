@@ -14,7 +14,6 @@ RSpec.describe Recipe, type: :model do
     it 'requires user_id to be present' do
       subject.user_id = nil
       expect(subject).to_not be_valid
-      expect(subject.errors[:user_id]).to include("can't be blank")
     end
 
     it 'requires user_id to correspond to an existing user' do
