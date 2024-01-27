@@ -39,7 +39,7 @@ RSpec.feature 'Foods view', type: :feature do
     visit foods_path
 
     expect(page).to have_selector('.food-row td', text: 'Orange')
-    expect(page).not_to have_css('a.info-btn', text: 'Modify', href: edit_food_path(food))
+    expect(page).not_to have_link('Modify', href: edit_food_path(food))
     expect(page).not_to have_link('Delete', href: food_path(food))
   end
 end
