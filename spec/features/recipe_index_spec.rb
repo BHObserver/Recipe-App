@@ -9,8 +9,8 @@ RSpec.feature 'Recipe Index', type: :feature do
 
   scenario 'User views the recipe index with recipes' do
     # Create some recipes for the user
-    recipe1 = Recipe.create(name: 'Pasta Carbonara', description: 'Delicious pasta dish', user: user)
-    recipe2 = Recipe.create(name: 'Chicken Stir-Fry', description: 'Healthy stir-fry', user: user)
+    recipe1 = Recipe.create(name: 'Pasta Carbonara', description: 'Delicious pasta dish', user:)
+    recipe2 = Recipe.create(name: 'Chicken Stir-Fry', description: 'Healthy stir-fry', user:)
 
     visit recipes_path
 

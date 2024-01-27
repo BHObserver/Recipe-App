@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe RecipesController, type: :controller do
@@ -33,7 +32,7 @@ RSpec.describe RecipesController, type: :controller do
     it 'destroys the recipe' do
       user = User.create(name: 'John Doe', email: 'test@example.com', password: 'password123')
       sign_in user
-      Recipe.create(name: 'Pasta Carbonara', description: 'Delicious pasta dish', user: user)
+      Recipe.create(name: 'Pasta Carbonara', description: 'Delicious pasta dish', user:)
     end
   end
 end

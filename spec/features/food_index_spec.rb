@@ -8,7 +8,7 @@ RSpec.feature 'Foods view', type: :feature do
   before { sign_in user }
 
   scenario "User sees the 'Your stored food' section" do
-    Food.create(name: 'Apple', measurement_unit: 'Piece', price: 1.99, quantity: 5, user: user)
+    Food.create(name: 'Apple', measurement_unit: 'Piece', price: 1.99, quantity: 5, user:)
     visit foods_path
 
     expect(page).to have_css('.food-container')
@@ -24,7 +24,7 @@ RSpec.feature 'Foods view', type: :feature do
   end
 
   scenario 'User sees the details of stored food' do
-    food = Food.create(name: 'Banana', measurement_unit: 'Piece', price: 2.49, quantity: 8, user: user)
+    food = Food.create(name: 'Banana', measurement_unit: 'Piece', price: 2.49, quantity: 8, user:)
     visit foods_path
 
     expect(page).to have_selector('.food-row td', text: 'Banana')
@@ -35,7 +35,7 @@ RSpec.feature 'Foods view', type: :feature do
   end
 
   scenario 'User does not see modify and delete links without appropriate permissions' do
-    food = Food.create(name: 'Orange', measurement_unit: 'Piece', price: 1.79, quantity: 10, user: user)
+    food = Food.create(name: 'Orange', measurement_unit: 'Piece', price: 1.79, quantity: 10, user:)
     visit foods_path
 
     expect(page).to have_selector('.food-row td', text: 'Orange')
