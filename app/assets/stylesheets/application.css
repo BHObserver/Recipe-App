@@ -32,7 +32,8 @@ tbody tr:nth-child(odd) {
   background-color: rgb(230, 237, 237);
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   border: 1px solid black;
 }

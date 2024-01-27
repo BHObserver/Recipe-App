@@ -9,12 +9,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.includes({ recipe_foods: :food }, :user).find(params[:id])
 
     # Check if the current user is the owner of the recipe or if the recipe is public
-    unless @recipe.public || (user_signed_in? && @recipe.user == current_user)
-      redirect_to recipes_path, alert: 'Access denied. This recipe is private.'
-      return
-    end
-  end
+    return if @recipe.public || (user_signed_in? && @recipe.user == current_user)
 
+    redirect_to recipes_path, alert: 'Access denied. This recipe is private.'
+    nil
+  end
 
   def public_recipes
     @public_recipes = Recipe.includes({ recipe_foods: :food }, :user).public_recipes

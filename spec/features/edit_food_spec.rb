@@ -13,7 +13,6 @@ RSpec.feature 'Update Food view', type: :feature do
 
   scenario "User sees the 'Update food' section" do
     expect(page).to have_css('.food-container')
-
   end
 
   scenario 'User updates the food details' do

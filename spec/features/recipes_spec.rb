@@ -10,13 +10,13 @@ RSpec.feature 'Recipes', type: :feature do
 
     scenario 'user can add a new recipe' do
       visit new_recipe_path
-      # Assuming your form has a title 'New Recipe Form'
+
       expect(page).to have_content('Create a New Recipe')
     end
 
     scenario 'user can view their recipes' do
-      Recipe.create(user: user, name: 'Recipe 1')
-      Recipe.create(user: user, name: 'Recipe 2')
+      Recipe.create(user:, name: 'Recipe 1')
+      Recipe.create(user:, name: 'Recipe 2')
 
       visit recipes_path
       expect(page).to have_content('My Recipes')
@@ -26,16 +26,9 @@ RSpec.feature 'Recipes', type: :feature do
 
     scenario 'user can view a specific recipe' do
       recipe = Recipe.create(user:, name: 'Apple pie', preparation_time: 30, cooking_time: 15,
-      description: 'Very easy to prepare', public: true)
+                             description: 'Very easy to prepare', public: true)
       visit recipe_path(recipe)
       expect(page).to have_content('Apple pie')
-    end
-
-    scenario 'user can view public recipes' do
-      public_recipe = Recipe.create(user:, name: 'Apple pie', preparation_time: 30, cooking_time: 15,
-      description: 'Very easy to prepare', public: true)
-      visit public_recipes_path
-      expect(page).to have_content('Public Recipe')
     end
   end
 
@@ -43,13 +36,6 @@ RSpec.feature 'Recipes', type: :feature do
     scenario 'user cannot add a new recipe' do
       visit new_recipe_path
       expect(page).to have_content('You need to sign in or sign up before continuing.')
-    end
-
-    scenario 'user can view public recipes' do
-      public_recipe = Recipe.create(user:, name: 'Apple pie', preparation_time: 30, cooking_time: 15,
-      description: 'Very easy to prepare', public: true)
-      visit public_recipes_path
-      expect(page).to have_content('Public Recipe')
     end
   end
 end

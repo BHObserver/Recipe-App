@@ -14,7 +14,8 @@
   gap: 10px;
 }
 
-.info-btn, .danger-btn {
+.info-btn,
+.danger-btn {
   padding: 8px 12px;
   text-decoration: none;
   color: #fff;
@@ -87,22 +88,6 @@ th {
   margin-bottom: 20px;
 }
 
-.food-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-  color: #333;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
 .add-food-btn {
   display: inline-block;
   margin-bottom: 20px;
@@ -119,7 +104,8 @@ th {
   margin-top: 20px;
 }
 
-.food-table th, .food-table td {
+.food-table th,
+.food-table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd; /* Border color between rows */
