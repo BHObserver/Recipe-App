@@ -58,29 +58,29 @@ class RecipeFoodsController < ApplicationController
   end
 
   def generate_shopping_list
-    # Step 1: Retrieve User's Recipes and Food List
+
     user_recipes = Recipe.includes(recipe_foods: :food).where(user_id: current_user.id)
     user_foods = user_recipes.map { |recipe| recipe.recipe_foods.map(&:food) }.flatten
 
-    # Step 2: Merge Food Lists
+
     consolidated_food_list = user_foods.group_by(&:id).transform_values { |foods| foods.sum(&:quantity) }
 
-    # Step 3: Compare with General Food List
+
     general_foods = Food.where(user_id: current_user.id).pluck(:id, :quantity)
     missing_food_items = consolidated_food_list.reject do |food_id, quantity|
       general_foods_hash = general_foods.to_h
       general_foods_hash[food_id] && general_foods_hash[food_id] >= quantity
     end
 
-    # Step 4: Calculate Total Food Items and Price
+
     total_count = missing_food_items.values.sum
     total_price = missing_food_items.sum { |food_id, quantity| Food.find(food_id).price * quantity }
 
-    # Step 5: Display Results
+
     @shopping_items = {
-      missing_food_items: missing_food_items,
-      total_count: total_count,
-      total_price: total_price
+      missing_food_items:,
+      total_count:,
+      total_price:
     }
   end
 
